@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class InformeSistema {
-    static void main(String[] args){
+    public static void main(String[] args){
         System.out.println("Procesadores");
         System.out.println("================================================");
         int procesadores = Runtime.getRuntime().availableProcessors();
@@ -18,7 +18,7 @@ public class InformeSistema {
         long libreAntes = memoria.freeMemory() / mib;
         long usoAntes = totalAntes - libreAntes;
         long maxima = memoria.maxMemory() / mib;
-        long porcentajeAntes = Math.round((double) usoAntes / totalAntes * 100);
+        long porcentajeAntes = (usoAntes * 100) / totalAntes;
         System.out.println("Total reservada: " + totalAntes + "Mib");
         System.out.println("Libre: " + libreAntes + "Mib");
         System.out.println("En uso: " + usoAntes + "Mib" + porcentajeAntes + "% de la total");
@@ -30,7 +30,7 @@ public class InformeSistema {
         long totalDespues = memoria.totalMemory() / mib;
         long libreDespues = memoria.freeMemory() / mib;
         long usoDespues = totalDespues - libreDespues;
-        long porcentajeDespues = Math.round((double) usoDespues / totalDespues * 100);
+        long porcentajeDespues = (usoDespues * 100) / totalDespues;
         long incremento = usoDespues - usoAntes;
         System.out.println("Total reservada: " + totalDespues + "mib");
         System.out.println("Libre: " + libreDespues + "mib");
